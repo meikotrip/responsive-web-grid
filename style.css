@@ -326,4 +326,9 @@ img {
         "feature1"
         "feature2";
     }
+   
+   .social-media a svg {
+      padding:0 10px;
+      width: 50px;
+   }
  }
