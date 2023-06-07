@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
+ body {
+    background-color: seashell;
+    font-size: 12px;
+    font-family: 'Geologica', sans-serif;
+    margin: 5% 10%;
+ }
+
+ /* container */
+ .container {
+    display: grid;
+    gap: 10px;
+ }
+
+ /* header */
+ .header {
+    display: grid;
+    grid-template-areas:
+    "hero hero feature1"
+    "hero hero feature2";
+ }
+
+ .hero {
+    grid-area: hero;
+    padding: 2%;
+    min-height: 300px;
+    background-image: url(img/hero.jpg);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    place-content: start center;
+ }
+
+ .hero h2, .hero p {
+    text-align: center;
+    color: white;
+    display: none;
+ }
+
+ .hero h2 {
+    font-size: 2em;
+    font-weight: 400;
+ }
+
+ .hero p {
+    font-size: 1.4em;
+    font-weight: 200;
+ }
+
+ .features {
+    background-color: black;
+    color: white;
+    padding: 2%;
+    display: grid;
+    place-content: end start;
+    cursor: pointer;
+ }
+
+ .f-1 {
+    grid-area: feature1;
+    background-image: url(img/feature1.jpg);
+    background-size: cover;
+    background-position: bottom;
+ }
+
+ .f-2 {
+    grid-area: feature2;
+    background-image: url(img/feature2.jpg);
+    background-size: cover;
+    background-position: bottom;
+ }
+
+ .features .title-feature {
+    font-size: 1.5em;
+    font-weight: 400;
+ }
+
+ .features .subtitle-feature {
+    font-size: 1em;
+    font-weight: 200;
+ }
+
+ /* navbar */
+ .menu {
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+ }
+
+ .menu .company-name {
+    font-size: 3em;
+ }
+
+ .menu ul {
+    font-size: 1.5em;
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    column-gap: 5px;
+ }
+
+ .menu a {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: saddlebrown;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+ }
+
+#menu-bar {
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+.title-section {
+   font-size: 1.75em;
+   padding-bottom: 10px;
+}
+
+/* Profile */
+.profile {
+   margin-top: 20px;
+   display: grid;
+}
+
+.descriptions {
+   display: grid;
+   grid-template-columns: minmax(260px, 1fr) 2fr;
+   column-gap: 100px;
+}
+
+.description-image img {
+   border-radius: 50%;
+}
+
+.description-text {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.description-text h3 {
+   font-size: 2em;
+   padding: 10px 0;
+}
+
+.description-text p {
+   font-size: 1.5em;
+   font-weight: 200;
+}
+
+/* Gallery */
+.gallery {
+   margin-top: 20px;
+   display: grid;
+}
+
+.landscapes {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 10px;
+}
+
+.landscape {
+   background-color: #deb887;
+   padding: 20px;
+   text-align: center;
+   border: 2px solid #d6a059 ;
+   border-radius: 3px;
+   box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.landscape .icon img {
+   width: 5em;
+   padding: 10px;
+}
+
+.landscape h3 {
+   font-size: 1.6em;
+}
+
+.landscape p {
+   font-weight: 200;
+   font-size: 1.2em;
+}
+
+/* contant */
+.contact {
+   margin-top: 20px;
+   display: grid;
+}
+
+.social-media {
+   margin: 50px auto;
+}
+
+.social-media a svg {
+   padding:0 20px;
+   width: 50px;
+   fill: saddlebrown;
+}
+
+/* footer */
+.footer {
+   text-align: center;
+   font-size: 1.5em;
+}
+
+
+ /* Responsive breakpoint */
+ @media screen and (max-width: 1024px){
+    .menu {
+        order: inherit;
+        grid-template-columns: 1fr;
+    }
+
+    .menu .company-name {
+        display: none;
+    }
+
+    .hero h2 , .hero p {
+        display: block;
+    }
+
+    .hero {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .description-text h3 {
+      font-size: 1.5em;
+      padding: 10px 0;
+   }
+   
+   .description-text p {
+      font-size: 1.2em;
+      font-weight: 200;
+   }
+ }
+
+ @media screen and (max-width: 768px) {
+    .menu {
+        order: -1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .menu .company-name {
+        display: block;
+    }
+
+    .menu ul {
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: saddlebrown;
+        z-index: 1;
+        transform: translateY(-100%);
+        transition:all 1s;
+        opacity: 0;
+    }
+
+    .menu ul.slide {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    #menu-bar {
+        display: block;
+        z-index: 2;
+    }
+
+    .hero h2 {
+        font-size: 1.75em;
+     }
+    
+    .hero p {
+        font-size: 1em;
+     }
+
+    .hero {
+        padding-bottom: 40px;
+    }
+
+    .descriptions {
+      display: grid;
+      grid-template-columns: 1fr;
+      column-gap: 100px;
+   }
+
+   .description-image {
+      margin: 0 auto;
+   }
+
+   .description-image img {
+      width: 260px;
+      border-radius: 50%;
+   }
+ }
+
+ @media screen and (max-width: 528px) {
+    .header {
+        grid-template-areas: 
+        "hero"
+        "feature1"
+        "feature2";
+    }
+ }
